@@ -1,5 +1,7 @@
 {
-  "annotations": {"list": []},
+  "annotations": {
+    "list": []
+  },
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
@@ -10,63 +12,231 @@
     {
       "type": "stat",
       "title": "Gateway",
-      "gridPos": {"h": 4, "w": 6, "x": 0, "y": 0},
-      "targets": [{"expr": "openclaw_gateway_up", "refId": "A"}],
-      "fieldConfig": {"defaults": {"mappings": [{"type":"value","options":{"0":{"text":"DOWN","color":"red"},"1":{"text":"UP","color":"green"}}}]}}
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 0
+      },
+      "targets": [
+        {
+          "expr": "openclaw_gateway_up",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [
+            {
+              "type": "value",
+              "options": {
+                "0": {
+                  "text": "DOWN",
+                  "color": "red"
+                },
+                "1": {
+                  "text": "UP",
+                  "color": "green"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      }
     },
     {
       "type": "stat",
       "title": "Telegram",
-      "gridPos": {"h": 4, "w": 6, "x": 6, "y": 0},
-      "targets": [{"expr": "openclaw_telegram_ok", "refId": "A"}],
-      "fieldConfig": {"defaults": {"mappings": [{"type":"value","options":{"0":{"text":"ISSUE","color":"red"},"1":{"text":"OK","color":"green"}}}]}}
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 0
+      },
+      "targets": [
+        {
+          "expr": "openclaw_telegram_ok",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [
+            {
+              "type": "value",
+              "options": {
+                "0": {
+                  "text": "ISSUE",
+                  "color": "red"
+                },
+                "1": {
+                  "text": "OK",
+                  "color": "green"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      }
     },
     {
       "type": "stat",
       "title": "Sesiones activas",
-      "gridPos": {"h": 4, "w": 6, "x": 12, "y": 0},
-      "targets": [{"expr": "openclaw_sessions_active", "refId": "A"}]
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 0
+      },
+      "targets": [
+        {
+          "expr": "openclaw_sessions_active",
+          "refId": "A"
+        }
+      ],
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      }
     },
     {
       "type": "stat",
       "title": "Uso de contexto (%)",
-      "gridPos": {"h": 4, "w": 6, "x": 18, "y": 0},
-      "targets": [{"expr": "openclaw_context_used_percent", "refId": "A"}],
-      "fieldConfig": {"defaults": {"unit": "percent"}}
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 0
+      },
+      "targets": [
+        {
+          "expr": "openclaw_context_used_percent",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent"
+        }
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      }
     },
     {
       "type": "timeseries",
       "title": "Uso de contexto (%) en el tiempo",
-      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 4},
-      "targets": [{"expr": "openclaw_context_used_percent", "refId": "A"}]
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 4
+      },
+      "targets": [
+        {
+          "expr": "openclaw_context_used_percent",
+          "refId": "A"
+        }
+      ],
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      }
     },
     {
       "type": "timeseries",
       "title": "Sesiones activas en el tiempo",
-      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 4},
-      "targets": [{"expr": "openclaw_sessions_active", "refId": "A"}]
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 4
+      },
+      "targets": [
+        {
+          "expr": "openclaw_sessions_active",
+          "refId": "A"
+        }
+      ],
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      }
     },
     {
       "type": "timeseries",
       "title": "CPU del host",
-      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 12},
-      "targets": [{"expr": "100 - (avg by (instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100)", "refId": "A"}],
-      "fieldConfig": {"defaults": {"unit": "percent"}}
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 12
+      },
+      "targets": [
+        {
+          "expr": "100 - (avg by (instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100)",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent"
+        }
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      }
     },
     {
       "type": "timeseries",
       "title": "Memoria usada del host",
-      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 12},
-      "targets": [{"expr": "(1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100", "refId": "A"}],
-      "fieldConfig": {"defaults": {"unit": "percent"}}
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 12
+      },
+      "targets": [
+        {
+          "expr": "(1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent"
+        }
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      }
     }
   ],
   "refresh": "30s",
   "schemaVersion": 39,
   "style": "dark",
-  "tags": ["openclaw","mission-control"],
-  "templating": {"list": []},
-  "time": {"from": "now-24h", "to": "now"},
+  "tags": [
+    "openclaw",
+    "mission-control"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
   "timezone": "browser",
   "title": "BartBot Mission Control",
   "uid": "bartbot-mission-control",
