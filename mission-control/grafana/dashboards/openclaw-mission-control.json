@@ -1,0 +1,74 @@
+{
+  "annotations": {"list": []},
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "type": "stat",
+      "title": "Gateway",
+      "gridPos": {"h": 4, "w": 6, "x": 0, "y": 0},
+      "targets": [{"expr": "openclaw_gateway_up", "refId": "A"}],
+      "fieldConfig": {"defaults": {"mappings": [{"type":"value","options":{"0":{"text":"DOWN","color":"red"},"1":{"text":"UP","color":"green"}}}]}}
+    },
+    {
+      "type": "stat",
+      "title": "Telegram",
+      "gridPos": {"h": 4, "w": 6, "x": 6, "y": 0},
+      "targets": [{"expr": "openclaw_telegram_ok", "refId": "A"}],
+      "fieldConfig": {"defaults": {"mappings": [{"type":"value","options":{"0":{"text":"ISSUE","color":"red"},"1":{"text":"OK","color":"green"}}}]}}
+    },
+    {
+      "type": "stat",
+      "title": "Sesiones activas",
+      "gridPos": {"h": 4, "w": 6, "x": 12, "y": 0},
+      "targets": [{"expr": "openclaw_sessions_active", "refId": "A"}]
+    },
+    {
+      "type": "stat",
+      "title": "Uso de contexto (%)",
+      "gridPos": {"h": 4, "w": 6, "x": 18, "y": 0},
+      "targets": [{"expr": "openclaw_context_used_percent", "refId": "A"}],
+      "fieldConfig": {"defaults": {"unit": "percent"}}
+    },
+    {
+      "type": "timeseries",
+      "title": "Uso de contexto (%) en el tiempo",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 4},
+      "targets": [{"expr": "openclaw_context_used_percent", "refId": "A"}]
+    },
+    {
+      "type": "timeseries",
+      "title": "Sesiones activas en el tiempo",
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 4},
+      "targets": [{"expr": "openclaw_sessions_active", "refId": "A"}]
+    },
+    {
+      "type": "timeseries",
+      "title": "CPU del host",
+      "gridPos": {"h": 8, "w": 12, "x": 0, "y": 12},
+      "targets": [{"expr": "100 - (avg by (instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100)", "refId": "A"}],
+      "fieldConfig": {"defaults": {"unit": "percent"}}
+    },
+    {
+      "type": "timeseries",
+      "title": "Memoria usada del host",
+      "gridPos": {"h": 8, "w": 12, "x": 12, "y": 12},
+      "targets": [{"expr": "(1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100", "refId": "A"}],
+      "fieldConfig": {"defaults": {"unit": "percent"}}
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 39,
+  "style": "dark",
+  "tags": ["openclaw","mission-control"],
+  "templating": {"list": []},
+  "time": {"from": "now-24h", "to": "now"},
+  "timezone": "browser",
+  "title": "BartBot Mission Control",
+  "uid": "bartbot-mission-control",
+  "version": 1
+}

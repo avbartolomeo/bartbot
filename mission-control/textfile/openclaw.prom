@@ -1,0 +1,18 @@
+# HELP openclaw_gateway_up OpenClaw gateway reachable (1=yes,0=no)
+# TYPE openclaw_gateway_up gauge
+openclaw_gateway_up 0
+# HELP openclaw_sessions_active Active sessions
+# TYPE openclaw_sessions_active gauge
+openclaw_sessions_active 0
+# HELP openclaw_context_used_k_tokens Used context tokens in K (first active session)
+# TYPE openclaw_context_used_k_tokens gauge
+openclaw_context_used_k_tokens 0
+# HELP openclaw_context_total_k_tokens Total context tokens in K (first active session)
+# TYPE openclaw_context_total_k_tokens gauge
+openclaw_context_total_k_tokens 0
+# HELP openclaw_context_used_percent Context usage percent (first active session)
+# TYPE openclaw_context_used_percent gauge
+openclaw_context_used_percent 0
+# HELP openclaw_telegram_ok Telegram channel health (1=OK,0=not OK)
+# TYPE openclaw_telegram_ok gauge
+openclaw_telegram_ok 0
