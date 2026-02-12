@@ -6,7 +6,7 @@ _Learn about the person you're helping. Update this as you go._
 - **What to call them:** Alejandro
 - **Pronouns:** _(optional)_
 - **Timezone:** UTC
-- **Notes:** Prefiere español. Le gusta un estilo casual, preciso e inteligente. Quiere guardar siempre los archivos de memoria cuando corresponda. Prefiere recibir respuestas largas por correo para leerlas más cómodo.
+- **Notes:** Prefiere español. Le gusta un estilo casual, preciso e inteligente. Quiere guardar siempre los archivos de memoria cuando corresponda. Prefiere recibir respuestas largas por correo para leerlas más cómodo. Es tirador de tiro práctico (IPSC) y quiere un digest diario de novedades por correo + resumen en Telegram alrededor de las 09:00.
 
 ## Context
 
