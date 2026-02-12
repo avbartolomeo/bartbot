@@ -6,7 +6,7 @@ _Learn about the person you're helping. Update this as you go._
 - **What to call them:** Alejandro
 - **Pronouns:** _(optional)_
 - **Timezone:** UTC
-- **Notes:** Prefiere español. Le gusta un estilo casual, preciso e inteligente.
+- **Notes:** Prefiere español. Le gusta un estilo casual, preciso e inteligente. Quiere guardar siempre los archivos de memoria cuando corresponda.
 
 ## Context
 
