@@ -221,6 +221,150 @@
         "type": "prometheus",
         "uid": "PBFA97CFB590B2093"
       }
+    },
+    {
+      "type": "stat",
+      "title": "Jobs programados (total)",
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 20
+      },
+      "targets": [
+        {
+          "expr": "openclaw_cron_jobs_total",
+          "refId": "A"
+        }
+      ],
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      }
+    },
+    {
+      "type": "stat",
+      "title": "Jobs habilitados",
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 20
+      },
+      "targets": [
+        {
+          "expr": "openclaw_cron_jobs_enabled",
+          "refId": "A"
+        }
+      ],
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      }
+    },
+    {
+      "type": "stat",
+      "title": "Errores consecutivos (suma)",
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 20
+      },
+      "targets": [
+        {
+          "expr": "openclaw_cron_consecutive_errors_sum",
+          "refId": "A"
+        }
+      ],
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      }
+    },
+    {
+      "type": "stat",
+      "title": "Sesiones totales",
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 20
+      },
+      "targets": [
+        {
+          "expr": "openclaw_sessions_total",
+          "refId": "A"
+        }
+      ],
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      }
+    },
+    {
+      "type": "timeseries",
+      "title": "Estado \u00faltimo run por job (1 ok / 0 error)",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 24
+      },
+      "targets": [
+        {
+          "expr": "openclaw_cron_job_last_status",
+          "refId": "A"
+        }
+      ],
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      }
+    },
+    {
+      "type": "timeseries",
+      "title": "Duraci\u00f3n \u00faltimo run por job (ms)",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 24
+      },
+      "targets": [
+        {
+          "expr": "openclaw_cron_job_last_duration_ms",
+          "refId": "A"
+        }
+      ],
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      }
+    },
+    {
+      "type": "timeseries",
+      "title": "Tokens (main) input/output",
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 32
+      },
+      "targets": [
+        {
+          "expr": "openclaw_main_input_tokens",
+          "refId": "A"
+        },
+        {
+          "expr": "openclaw_main_output_tokens",
+          "refId": "B"
+        }
+      ],
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      }
     }
   ],
   "refresh": "30s",
@@ -240,5 +384,5 @@
   "timezone": "browser",
   "title": "BartBot Mission Control",
   "uid": "bartbot-mission-control",
-  "version": 1
+  "version": 2
 }
