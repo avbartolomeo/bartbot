@@ -1,0 +1,78 @@
+Five4.com.ar — Informe de remediación (Nivel 1) + Pen Test externo suave
+Fecha: 2026-02-14 (UTC)
+
+Resumen ejecutivo
+- Estado: mitigación “Nivel 1 completo” aplicada para reducir exposición mientras no hay fecha de migración.
+- Resultado: HTTPS con certificado válido, headers de seguridad básicos, reducción de fingerprinting, y protección del login/admin de WordPress.
+- Riesgo residual: sigue siendo ALTO a largo plazo por stack EOL (Ubuntu 14.04 / PHP 5.5 / WordPress 4.5.x). La mitigación reduce ataques oportunistas pero no reemplaza migración.
+
+Alcance
+- Pen test externo NO destructivo, intensidad suave.
+- Target: five4.com.ar (incluye www por redirección). Sin subdominios.
+
+Hallazgos del pen test externo (antes de la mitigación)
+1) TLS/HTTPS
+- Certificado: self-signed → rompe validación de confianza (navegadores/SEO/clients).
+- Protocolos: TLS 1.2 OK; TLS 1.0/1.1 deshabilitados; TLS 1.3 no disponible (stack viejo).
+
+2) Headers de seguridad ausentes
+- No se observaban HSTS/CSP/X-Content-Type-Options/X-Frame-Options/Referrer-Policy/etc.
+
+3) Fingerprinting/WordPress
+- /wp-login.php accesible (200)
+- /wp-json/ accesible (200)
+- /readme.html accesible (200)
+- Version hints en HTML (p.ej. WordPress 4.5.32, Yoast SEO 3.2.5)
+
+4) Superficie de red
+- Puertos abiertos detectados: 22, 80, 443. (Correcto, sin servicios adicionales expuestos.)
+
+Remediación aplicada (Nivel 1 completo)
+A) HTTPS con certificado válido (Let’s Encrypt)
+- Se emitió certificado válido para: five4.com.ar y www.five4.com.ar.
+- Se instaló la cadena correctamente para compatibilidad con Apache antiguo (SSLCertificateChainFile).
+- Impacto: navegación sin warnings, mejora UX y señales SEO.
+
+B) Security headers (mínimo viable)
+Se habilitaron:
+- Strict-Transport-Security: max-age=86400; includeSubDomains (1 día inicial; subir luego)
+- Content-Security-Policy: conservadora (permite https: y data:, mantiene compatibilidad)
+- X-Content-Type-Options: nosniff
+- X-Frame-Options: SAMEORIGIN
+- Referrer-Policy: strict-origin-when-cross-origin
+- Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+C) Reducción de fingerprinting
+- readme.html bloqueado (403) para evitar exposición típica de WordPress.
+- Apache: ServerTokens Prod, ServerSignature Off.
+- PHP: expose_php = Off (reduce “X-Powered-By” en muchos casos).
+
+D) Protección de superficies de administración WordPress
+- Basic Auth agregado a:
+  - /wp-login.php
+  - /wp-admin/ (excepto /wp-admin/admin-ajax.php)
+- Objetivo: reducir ataques automatizados y fuerza bruta al login.
+
+Credenciales de Basic Auth (para acceso admin WP)
+- Usuario: alejandro
+- Password: (enviado por chat; rotar cuando se migre o si se comparte)
+
+Verificación externa (post-remediación)
+- https://five4.com.ar redirige a https://www.five4.com.ar y valida certificado.
+- /readme.html devuelve 403.
+- /wp-login.php devuelve 401 (requiere Basic Auth).
+- Headers de seguridad presentes en respuestas.
+
+Riesgos residuales (lo que sigue siendo importante)
+1) Stack EOL
+- Ubuntu 14.04 / PHP 5.5 / WP 4.5.x: vulnerabilidades conocidas sin parches.
+- Mitigación no equivale a seguridad “completa”.
+
+2) WordPress sigue expuesto
+- Aunque el admin esté protegido, el core/plugins siguen siendo una superficie.
+
+Recomendación de próximos pasos (cuando haya ventana)
+- Migración a sitio estático (Astro/Pages) + contenido en Git + despliegue CI.
+- Si se mantiene WP temporalmente: WAF/rate limiting adicional y actualización/migración a stack soportado.
+
+Fin.

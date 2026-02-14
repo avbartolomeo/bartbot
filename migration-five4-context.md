@@ -12,6 +12,7 @@
 - **2026-02-13** — Blog automatizado: **publicación cada 3 días vía PR con aprobación** — control editorial y calidad — definir pipeline (generación ES + traducciones EN/IT/PT) y calendario.
 - **2026-02-13** — Sitio objetivo enfocado en consultoría: **Gobierno de datos, analítica, ciencia de datos e IA basada en datos** + madurez data-driven — claridad B2B y SEO — diseñar service pages + casos + bios + FAQs.
 - **2026-02-13** — Seguridad: **SSH por llave**, **root SSH deshabilitado**, **UFW deny-by-default**, **Fail2ban más agresivo** — reducir riesgo inmediato — mantener SSH en puerto 22.
+- **2026-02-14** — Mitigación web (Nivel 1): **cert válido Let’s Encrypt + headers + bloqueo readme.html + Basic Auth en /wp-login.php y /wp-admin** — bajar riesgo mientras no migramos — planear migración a estático.
 - **2026-02-13** — Operación: crear usuario de mantenimiento **`openclaw`** con sudo — permitir mantenimiento continuo sin root SSH — validar accesos y luego migrar.
 
 ## 0) Situación inicial / diagnóstico
