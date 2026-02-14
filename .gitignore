@@ -1,0 +1,16 @@
+# Secrets / keys
+ssh_keys/
+
+# Local tools & services (may contain creds/config)
+searxng/
+tools/
+voice-bridge/
+
+# Agent scratch / state
+memory/
+mission-control/
+
+# OS/editor
+.DS_Store
+*.swp
+*.tmp
